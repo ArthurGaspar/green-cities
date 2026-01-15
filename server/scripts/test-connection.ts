@@ -15,17 +15,17 @@ async function testConnection() {
       database: process.env.DB_NAME,
     });
 
-    console.log('✅ Successfully connected to MySQL database!');
+    console.log('Successfully connected to MySQL database!');
 
     // Test reading from db
     const [neighborhoods] = await connection.execute('SELECT COUNT(*) as count FROM neighborhoods');
     console.log(`Number of neighborhoods: ${(neighborhoods as any[])[0].count}`);
 
     await connection.end();
-    console.log('🔒 Connection closed');
+    console.log('Connection closed');
 
   } catch (error) {
-    console.error('❌ Connection failed:', error);
+    console.error('Connection failed:', error);
   }
 }
 
